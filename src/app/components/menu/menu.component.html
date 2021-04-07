@@ -1,0 +1,91 @@
+<p class="logo">Jackett.</p>
+<div class="navigation-list">
+  <ul class="list-group">
+    <li class="list-group-item" routerLink="/home/">
+      <i class="fas fa-chart-pie menu-icon"></i>
+      <span class="icon-description">Dashboard</span>
+    </li>
+    <li class="list-group-item" routerLink="/home/Worksheets">
+      <i class="far fa-file-alt menu-icon"></i>
+      <span class="icon-description">Worksheets</span>
+    </li>
+    <li class="list-group-item"><i class="fas fa-list-ul menu-icon"></i>
+      <span class="icon-description">Quiz</span>
+    </li>
+    <li class="list-group-item">
+      <i class="fas fa-book menu-icon"></i>
+      <span class="icon-description">Resources</span>
+    </li>
+    <li class="list-group-item" routerLink="/login">
+      <i class="fas fa-power-off menu-icon"></i>
+      <span class="icon-description">Log Out</span>
+    </li>
+  </ul>
+</div>
+<style>
+  .logo{
+    color: white;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 25px;
+    font-family: Kailasa;
+    letter-spacing: .1rem;
+  }
+
+  .navigation-list {
+    padding: 0 3%;
+  }
+
+  .list-group-item {
+    padding: 0.8rem;
+  }
+
+  .list-group, .list-group-item {
+    background-color: inherit;
+    border: none;
+    color: white;
+    border-bottom: 1px snow solid;
+    text-align: left;
+    border-radius: 0;
+    font-size: 15px;
+    cursor: pointer;
+    font-weight: 300;
+  }
+
+  .list-group, .list-group-item:last-child {
+    border: none;
+  }
+
+  .list-group, .list-group-item:first-child {
+    margin-top: 10px;
+  }
+
+  .list-group-item:hover {
+    font-weight: 400;
+    font-size: 20px;
+  }
+
+  .list-group, .list-group-item:focus {
+    outline: none;
+  }
+
+  .menu-icon {
+    margin-right: 10px;
+  }
+
+  @media screen and (max-width: 800px){
+    .logo{
+      font-size: 0.8rem;
+      letter-spacing: 0;
+    }
+    .list-group-item{
+      font-size: 1.2em;
+      font-weight: lighter;
+      text-align: center;
+    }
+    .icon-description{
+      display: none;
+    }
+  }
+</style>

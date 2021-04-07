@@ -1,0 +1,121 @@
+<p style="font-size: 1.5em;margin-left: 2%" class="mt-4">Create Work Sheet</p>
+<div class="container-fluid" style="background-color: white; width: 98%;padding:2%">
+  <button style="width: 150px;
+                 height: 30px;
+                 background-color: #3b5999;
+                 color: white;
+                 border-radius: 20px;
+                 border: none;
+                 font-size: 0.8rem;
+                 float: right"
+                 type="button">Create Worksheet</button>
+  <div class="row">
+    <form [formGroup]="worksheetFormGroup" style="padding: 0 1%;">
+      <div class="row">
+        <div class="col-3">
+          <mat-form-field style="width: 100%">
+            <mat-label>Worksheet Name</mat-label>
+            <input matInput type="text" class="form-control" id="workSheetName"
+                   placeholder="Please enter worksheet name"
+                   formControlName="workSheetName" style="background-color: inherit">
+          </mat-form-field>
+        </div>
+        <div class="col-3">
+          <mat-form-field style="width: 100%">
+            <mat-label>Worksheet Description</mat-label>
+            <input matInput type="text" class="form-control" id="workSheetDescription"
+                   placeholder="Please enter description"
+                   formControlName="workSheetDescription" style="background-color: inherit">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-3">
+          <mat-form-field style="width: 100%">
+            <mat-label>Resource Bank</mat-label>
+            <input matInput type="text" class="form-control" id="resourceBank"
+                   placeholder="Please enter resource bank name"
+                   formControlName="resourceBank" style="background-color: inherit">
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-2">
+          <mat-form-field style="width: 100%">
+            <mat-label>Book</mat-label>
+            <input matInput type="text" class="form-control" id="book" placeholder="Please select book name"
+                   formControlName="book" style="background-color: inherit">
+          </mat-form-field>
+        </div>
+        <div class="col-2">
+          <mat-form-field style="width: 100%">
+            <mat-label>Chapter</mat-label>
+            <input matInput type="text" class="form-control" id="chapter" placeholder="Please select chapter name"
+                   formControlName="book" style="background-color: inherit">
+          </mat-form-field>
+        </div>
+        <div class="col-2">
+          <mat-form-field style="width: 100%">
+            <mat-label>Class</mat-label>
+            <input matInput type="text" class="form-control" id="class" placeholder="Please select class"
+                   formControlName="book" style="background-color: inherit">
+          </mat-form-field>
+        </div>
+        <div class="col-2">
+          <mat-form-field style="width: 100%">
+            <mat-label>Difficulty Level</mat-label>
+            <input matInput type="text" class="form-control" id="difficultyLevel"
+                   placeholder="Please select difficulty level"
+                   formControlName="book" style="background-color: inherit">
+          </mat-form-field>
+        </div>
+        <div class="col-2">
+          <mat-form-field style="width: 100%">
+            <mat-label>Question Type</mat-label>
+            <input matInput type="text" class="form-control" id="questionType" placeholder="Please select question type"
+                   formControlName="book" style="background-color: inherit">
+          </mat-form-field>
+        </div>
+      </div>
+    </form>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-6">
+      <!-- TODO :: -->
+    </div>
+    <div class="col-6">
+      <!-- Drag-and-drop Area -->
+      <gridster [options]="options">
+        <gridster-item *ngFor="let item of questionsInWorksheet" [item]="item">
+          <!-- TODO :: -->
+<!--          <div fxLayout="row" fxLayoutAlign="space-around center">-->
+<!--            <div fxFlex="90">-->
+<!--              <app-question [questionData]="item.questionData"></app-question>-->
+<!--            </div>-->
+<!--            <div fxFlex="10">-->
+<!--              <button id="delete-button-in-worksheet" mat-raised-button color="warn" (click)="dragAndDropService.deleteItem(item.id)">Delete</button>-->
+<!--            </div>-->
+<!--          </div>-->
+        </gridster-item>
+      </gridster>
+    </div>
+  </div>
+</div>
+<style>
+  mat-label {
+    font-size: small;
+  }
+
+  input::placeholder {
+    font-size: small;
+    color: gray;
+  }
+
+  input:focus {
+    outline: none;
+    border-color: inherit;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+</style>

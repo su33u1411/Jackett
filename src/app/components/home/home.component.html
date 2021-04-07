@@ -1,0 +1,22 @@
+<div style="display: flex;flex-direction: row;height: 100%">
+  <app-menu></app-menu>
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+<style>
+  app-menu{
+    flex:2;
+    background-color: #3b5999;
+    min-height: 100vh;
+  }
+  .content{
+    flex:10;
+    background-color: #fffbfa;
+  }
+  @media screen and (max-width: 800px){
+    app-menu{
+     flex: 1;
+    }
+  }
+</style>

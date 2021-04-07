@@ -1,0 +1,127 @@
+<div style="margin-left: 1.5rem">
+  <p class="greeting">Welcome, Sid Mogili</p>
+  <div class="dashboard-container">
+      <div class="table-responsive" id="Worksheets-widget">
+        <p style="font-size: 1.4em;font-weight: 550">
+          Worksheets
+          <span style="float: right;cursor: pointer" routerLink="/home/Worksheets"><i class="fas fa-plus-circle"></i></span>
+          <br>
+          <small style="font-size: small;color: darkgray;font-weight: lighter">All your worksheets are listed here</small>
+        </p>
+        <mat-form-field style="width: 100%">
+          <mat-label style="font-size: small">Filter</mat-label>
+          <input type="text" matInput (keyup)="applyWorkSheetFilter($event)" placeholder="Ex. ium" #input>
+        </mat-form-field>
+        <mat-table [dataSource]="this.worksheets" class="mat-elevation-z8">
+          <ng-container matColumnDef="id">
+            <mat-header-cell *matHeaderCellDef id="id" [ngClass]="'w-75'">ID</mat-header-cell>
+            <mat-cell *matCellDef="let element" [ngClass]="'w-75'"> {{element.id}} </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="worksheetName">
+            <mat-header-cell *matHeaderCellDef id="worksheetName" [ngClass]="'w-200'"> Name</mat-header-cell>
+            <mat-cell *matCellDef="let element" [ngClass]="'w-200'"> {{element.worksheetName}} </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="details">
+            <mat-header-cell *matHeaderCellDef id="details" [ngClass]="'w-200'"> Details </mat-header-cell>
+            <mat-cell *matCellDef="let element" [ngClass]="'w-200'"> {{element.metadata}} </mat-cell>
+          </ng-container>
+          <ng-container matColumnDef="file">
+            <mat-header-cell *matHeaderCellDef id="file" [ngClass]="'file'">File</mat-header-cell>
+            <mat-cell *matCellDef="let element" [ngClass]="'file'"><i class="fas fa-file-pdf fa-2x" style="color: orange;cursor: pointer"></i></mat-cell>
+          </ng-container>
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        </mat-table>
+        <mat-paginator [pageSizeOptions]="[5, 10]"></mat-paginator>
+      </div>
+    <div class="table-responsive" id="Questions-widget">
+      <p style="font-size: 1.4em;font-weight: 550">
+        Questions
+        <span style="float: right"><i class="fas fa-plus-circle"></i></span>
+        <br>
+        <small style="font-size: small;color: darkgray;font-weight: lighter">Sub heading</small>
+      </p>
+      <mat-form-field style="width: 100%">
+        <mat-label style="font-size: small">Filter</mat-label>
+        <input type="text" matInput (keyup)="applyWorkSheetFilter($event)" placeholder="Ex. ium" #input>
+      </mat-form-field>
+      <mat-table [dataSource]="this.questions" class="mat-elevation-z8">
+        <ng-container matColumnDef="Question">
+          <mat-header-cell *matHeaderCellDef id="Question" [ngClass]="'w-200'">Question</mat-header-cell>
+          <mat-cell *matCellDef="let element" [ngClass]="'w-200'"> {{element.questionString}} </mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="Book">
+          <mat-header-cell *matHeaderCellDef id="Book" [ngClass]="'w-100'">Book</mat-header-cell>
+          <mat-cell *matCellDef="let element" [ngClass]="'w-100'"> {{element.book}} </mat-cell>
+        </ng-container>
+        <mat-header-row *matHeaderRowDef="questionColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: questionColumns;"></mat-row>
+      </mat-table>
+      <mat-paginator [pageSizeOptions]="[5, 10]"></mat-paginator>
+    </div>
+  </div>
+</div>
+<style>
+  .dashboard-container{
+    display: flex;
+    justify-content: start;
+    margin-top: 1rem;
+    width: 95%;
+  }
+  .greeting{
+    font-size: 1.5em;
+    font-weight: 450;
+    margin-top: 2rem;
+    margin-left: 1rem;
+  }
+  .w-75{
+    max-width: 75px;
+    font-size: small;
+    color: grey;
+  }
+
+  .w-100{
+    max-width: 100px;
+    font-size: small;
+    color: grey;
+  }
+
+  .w-200{
+    max-width: available;
+    font-size: small;
+  }
+  .file{
+    max-width: 75px;
+  }
+  .mat-elevation-z8{
+    box-shadow: none;
+  }
+  .table-responsive{
+    background-color: white;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 0.5rem;
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    box-shadow: 1px 2px 5px lightgrey;
+  }
+
+  #Worksheets-widget{
+    flex:3;
+    border-top: 5px solid orange;
+  }
+
+  #Questions-widget{
+    flex: 2;
+    border-top: 5px solid limegreen;
+  }
+
+  @media screen and (max-width: 1100px){
+    .dashboard-container{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      width: 100%;
+    }
+  }
+</style>

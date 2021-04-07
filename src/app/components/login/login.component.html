@@ -1,0 +1,63 @@
+<div
+  style="width: 70vw;height: 70vh;margin: auto;top: 15vh;transform: translateY(15vh);display: flex;">
+  <div style="flex:1;">
+    <img src="assets/image1.jpg" width="80%"
+         style="height: 80%;border-radius: 2px;object-fit: contain;left: 30%;top:5%;transform: translate(30%,5%)">
+  </div>
+  <div style="flex:1;background-color: white">
+    <div class="alert alert-danger text-center" role="alert" *ngIf="isLoginError">
+      <strong>Error!!</strong> Please provide valid username or password.
+    </div>
+    <form [formGroup]="loginFormGroup" (ngSubmit)="validateUser()"
+          style="padding: 0 5rem;top: 50%;transform: translateY(50%)">
+      <p style="text-align: center;font-size: 3rem;font-weight: bold;color: #3b5999;font-family: Kailasa">Jackett.</p>
+      <mat-form-field style="width: 100%">
+        <mat-label>Username</mat-label>
+        <input matInput type="text" class="form-control" id="username" placeholder="Please type your username"
+               formControlName="username" style="background-color: inherit">
+        <mat-error
+          *ngIf="loginFormGroup.controls['username'].invalid && (loginFormGroup.controls['username'].dirty || loginFormGroup.controls['username'].touched)">
+          <small *ngIf="loginFormGroup.controls['username'].errors.required" class="warning-message">Username is
+            required</small>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field style="width: 100%;margin-top: 5px;">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" class="form-control" id="password" placeholder="Please type your password"
+               formControlName="password" style="background-color: inherit">
+        <mat-error
+          *ngIf="loginFormGroup.controls['password'].invalid && (loginFormGroup.controls['password'].dirty || loginFormGroup.controls['password'].touched)">
+          <small *ngIf="loginFormGroup.controls['password'].errors.required" class="warning-message">Password is
+            required</small>
+        </mat-error>
+      </mat-form-field>
+      <div class="d-grid gap-2 mt-3">
+        <button type="submit" class="btn"
+                [disabled]="loginFormGroup.pristine || loginFormGroup.invalid"
+                style="height: 40px;width: auto;background-color: #3b5999;color: white;font-size: 1rem" (click)="validateUser()">Login
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+<style>
+  mat-label {
+    font-size: medium;
+  }
+
+  input::placeholder {
+    font-size: small;
+    color: gray;
+  }
+
+  input:focus {
+    outline: none;
+    border-color: inherit;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+  }
+
+  .warning-message {
+    color: red;
+  }
+</style>
