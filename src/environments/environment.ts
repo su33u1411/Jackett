@@ -3,6 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
+  domain: 'http://ec2-54-254-179-194.ap-southeast-1.compute.amazonaws.com',
   production: false
 };
 
